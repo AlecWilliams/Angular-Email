@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +15,7 @@ export class SigninComponent implements OnInit {
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(20),
-      Validators.pattern(/^[a-z0-9]+$/),
+      Validators.pattern(/^[A-Za-z0-9]+$/),
     ]),
     password: new FormControl('', [
       Validators.required,
@@ -26,6 +27,15 @@ export class SigninComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    //If still signed in, send straight to  inbox
+    this.authService.signedIn$.subscribe((signedIn) => 
+    {
+      if(signedIn)
+      {
+        this.router.navigateByUrl('/inbox');
+      }
+    })
+
   }
 
   onSubmit()

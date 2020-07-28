@@ -1,6 +1,6 @@
 <div class="ui container">
     <div class="ui secondary pointing menu">
-        <a routerLink="/" class="item">Angular Email</a>
+        <a  class="item">Angular Email</a>
 
         <div class="right menu">
             <ng-container *ngIf="signedIn">
@@ -13,6 +13,9 @@
             </ng-container>
         </div>
     </div>
-    <router-outlet></router-outlet>
-
+    <div class="login window">
+        <router-outlet ></router-outlet>  
+    </div>
 </div>
+
+

@@ -13,14 +13,12 @@ export class AppComponent {
 
   ngOnInit()
   {
-    //this.authService.checkAuth().subscribe(() => {});
 
     this.authService.signedIn$.subscribe((signedIn) => {
       this.signedIn = signedIn;
     });
 
    this.authService.checkAuth().subscribe(() => {});
-
 
   }
 }

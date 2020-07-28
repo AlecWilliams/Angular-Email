@@ -16,7 +16,7 @@ export class SignoutComponent implements OnInit {
     this.authService.signOut().subscribe(() => 
     {
       //Navigate to signed out page or back to sign in page
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('');
     })
   }
 
