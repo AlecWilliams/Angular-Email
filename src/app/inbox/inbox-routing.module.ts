@@ -1,11 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SignoutComponent } from '../auth/signout/signout.component';
+import { EmailShowComponent } from './email-show/email-show.component';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { EmailResolverService } from './email-resolver.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'signout', component: SignoutComponent, }
+  { 
+    path: '', 
+    component: HomeComponent,
+    children: [
+      {
+        path: ':id',
+        component: EmailShowComponent,
+        resolve: {
+          email: EmailResolverService
+        }
+      },
+      { path:'', component: PlaceholderComponent}
+    ]
+  },
 ];
 
 @NgModule({

@@ -1,1 +1,14 @@
-<p>email-index works!</p>
+<div class="ui celled list">
+    <div *ngFor="let email of emails" class="item">
+        <a [routerLink]="email.id" routerLinkActive="active" >
+            <div class="content">
+                <div class="header trim">
+                    {{ email.subject}}
+                </div>
+                <p class="trim">
+                    {{ email.from}}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
