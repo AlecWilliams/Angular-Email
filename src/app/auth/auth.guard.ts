@@ -15,6 +15,8 @@ export class AuthGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
       return this.authService.signedIn$.pipe(
+        //CanLoad requires obseravble marked as complete
+        //skipWhile and take(1) fake it being marked as complete
         skipWhile(value => value == null),
         take(1),
         tap((authenticated)=> 
