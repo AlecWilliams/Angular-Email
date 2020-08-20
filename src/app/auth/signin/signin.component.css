@@ -4,3 +4,13 @@
 .ui.grid   {
     margin-top: 8em;
 }
+
+.button {
+    display: block;
+    margin-bottom: 10px ;
+    padding: 10px 8px ;
+
+    text-align: center;
+    width: 100%;
+}
+

@@ -1,6 +1,8 @@
 <div class="ui grid">
     <div class="six wide column centered">
-        <h3>Create an Account</h3>
+        <div class="ui center aligned header">
+            <h2>Create an Account</h2>
+        </div>  
         <form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
             
             <app-input label="Username" inputType="text" [control]="authForm.get('username')"></app-input>
@@ -16,7 +18,7 @@
                 <p *ngIf="authForm.errors.unknownError">Failed to sign up</p>
             </div>
 
-            <div>
+            <div class="ui center aligned container">
                 <button class="ui submit button primary">Submit</button>
             </div>
         

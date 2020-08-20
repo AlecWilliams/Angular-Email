@@ -1,6 +1,8 @@
 <div class="ui grid">
     <div class="six wide column centered">
-        <h3>Sign In</h3>
+        <div class="ui center aligned header">
+            <h2>Sign In</h2>
+        </div>
         <form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
             <app-input label="Username" inputType="text" [control]="authForm.get('username')"></app-input>
             <app-input label="Password" inputType="password" [control]="authForm.get('password')"></app-input>
@@ -8,9 +10,13 @@
             <div *ngIf="authForm.errors" class="ui red basic label">
                 <p *ngIf="authForm.errors.credentials">Invalid username / password</p>
             </div>
-            <div>
-            <button class="ui submit button primary">Submit</button>
+            <div class="ui center aligned container">
+               
+                    <button  class="ui  submit button primary">Submit</button>
+                    <button  routerLink="/signup" class="ui  button teal">Create Account</button>
+        
             </div>
         </form>
+ 
     </div>
-</div>
+</div>  
